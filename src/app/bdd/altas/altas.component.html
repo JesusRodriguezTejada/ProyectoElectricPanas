@@ -1,0 +1,32 @@
+<div class="container center pt-4">
+    <div class="card" style="width: 60%;">
+      <div class="card-body">
+        <h5 class="card-title mt-2">Agregar película</h5>
+        
+        <form class="mt-4" [formGroup] = "createPelicula" (ngSubmit)="agregarPelicula()">
+          <div class="col mt-3">
+            <label>Título</label>
+            <input type="text" class="form-control" placeholder="Título" formControlName="titulo">
+          </div>
+          <div class="col mt-3">
+            <label>Dirección</label>
+            <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion">
+          </div>
+          <div class="col mt-3">
+            <label>Año</label>
+            <input type="text" class="form-control" placeholder="Año" formControlName="anio">
+          </div>
+  
+          <div *ngIf="submitted && createPelicula.invalid" class="mt-4 text-center">
+          <span>Los campos son obligatorios</span>
+          </div>
+  
+          <div class="col">
+              <button type="submit" class="btn btn-dark mt-4 mb-3">Agregar</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+    <table class="table tb">
+        <tr class="table-info">
+            <th>Titulo</th>
+            <th>Dirección</th>
+            <th>Año</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let pelicula of peliculas">
+            <td>{{pelicula.titulo}}</td>
+            <td>{{pelicula.direccion}}</td>
+            <td>{{pelicula.anio}}</td>
+            <td><strong (click)="eliminarPelicula(pelicula.id)" role="button"> Eliminar </strong></td>
+            <td><strong role="button" [routerLink]="['/editar/', pelicula.id]"> Editar </strong></td>
+        </tr>
+    </table>
+</div>
