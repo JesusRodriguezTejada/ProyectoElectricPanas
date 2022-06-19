@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
@@ -21,6 +21,7 @@ export class RegistrarComponent implements OnInit {
       contrasenia: ['', Validators.required],
       rContrasenia: ['', Validators.required]
     })
+    
   }
 
   ngOnInit(): void {
@@ -38,22 +39,22 @@ export class RegistrarComponent implements OnInit {
 
       this.afAuth.createUserWithEmailAndPassword(correo, contrasenia).then((user) => {
         console.log(user);
-       // alert("Usuario registrado");
+        Swal.fire('usuario registrado');
+       
        this.router.navigate(['/login']);
       }).catch((error) => {
         console.log(error);
-        alert(this.firebaseError(error.code));
+        Swal.fire(this.firebaseError(error.code));
       })
-    } else {
-      alert(this.firebaseError("no-match-password")); 
-      
+    } else {     
+      Swal.fire(this.firebaseError("no-match-password"));     
     }
-
   }
 
   firebaseError(code: string) {
     switch (code) {
       case 'auth/email-already-in-use':
+        Swal.fire('Usuario ya existe');
         return 'El usuario ya existe';
       case 'auth/weak-password':
         return 'La contraseña es muy débil';
@@ -66,11 +67,6 @@ export class RegistrarComponent implements OnInit {
     }
   }
 
-  salir(): void{
-    setTimeout(() => {
-      console.log('sleep');
-      this.router.navigate(['/home'])
-    }, 2000);
-  }
+
 
 }
