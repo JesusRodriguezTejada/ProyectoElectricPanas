@@ -30,8 +30,8 @@
                 <td>{{producto.categoria}}</td>
                 <td>${{producto.precio}}</td>
                 <td>{{producto.descripcion}}</td>
-                <td class="center"><strong role="button" [routerLink]="['/editar/', producto.id]"> Editar </strong></td>
-                <td class="center"><strong (click)="eliminarProducto(producto.id)" role="button"> Eliminar </strong></td>
+                <td class="center"><strong role="button" [routerLink]="['/editar/', producto.id]" *ngIf="admin"> Editar </strong></td>
+                <td class="center"><strong (click)="eliminarProducto(producto.id)" role="button" *ngIf="admin"> Eliminar </strong></td>
             </tr>
         </tbody>
     </table>

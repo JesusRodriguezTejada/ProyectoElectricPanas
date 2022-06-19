@@ -20,6 +20,7 @@ export class ListaComponent implements OnInit {
   dataUser: any;
   userName: string;
   admin: boolean;
+  admins: string[]=[];
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -29,6 +30,7 @@ export class ListaComponent implements OnInit {
     this.loading = true;
     this.admin = false;
     this.userName = '';
+    this.admins = admins; 
   }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class ListaComponent implements OnInit {
         this.dataUser = user;
         this.userName = this.dataUser.email;
         this.checkAdmin();
+        console.log(this.admins);
       }
     })
 
@@ -74,12 +77,10 @@ export class ListaComponent implements OnInit {
 
   checkAdmin() {
     admins.forEach((i:any) => {
-      if(admins[i]==this.userName){
+      if(i==this.userName){
         this.admin = true;
       }
     })
-    console.log(this.admin);
-    console.log(this.userName);
   }
 
 }
