@@ -54,7 +54,6 @@ export class RegistrarComponent implements OnInit {
   firebaseError(code: string) {
     switch (code) {
       case 'auth/email-already-in-use':
-        Swal.fire('Usuario ya existe');
         return 'El usuario ya existe';
       case 'auth/weak-password':
         return 'La contraseña es muy débil';

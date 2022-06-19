@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
@@ -34,7 +34,7 @@ export class ListaComponent implements OnInit {
 
   eliminarProducto(id: string) {
     this.bddService.eliminarProducto(id).then(() => {
-      console.log("producto eliminado");
+      Swal.fire("producto eliminado");
     }).catch(error => {
       console.log(error);
     })

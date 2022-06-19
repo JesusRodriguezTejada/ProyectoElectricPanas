@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-altas',
@@ -49,7 +50,7 @@ export class AltasComponent implements OnInit {
     }
 
     this.bddService.agregarProducto(producto).then(() => {
-      alert("producto agregado exitosamente");// mensaje de exito
+      Swal.fire("producto agregado exitosamente");// mensaje de exito
       this.router.navigate(['/lista']);
     }).catch(error => {
       console.log(error);

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',
@@ -52,7 +52,7 @@ export class EditarComponent implements OnInit {
 
     if (this.id !== null){
       this.bddService.actualizarProducto(this.id, producto).then(() => {
-        alert("producto editado exitosamente");
+        Swal.fire("producto editado exitosamente");
         this.router.navigate(['/lista']);
       })
     }
