@@ -18,7 +18,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     RegistrarComponent,
     EditarComponent,
-    MainComponent,
     HomeComponent
   ],
   imports: [
