@@ -24,6 +24,13 @@
         <div class="text-center">
         <p class="mt-3">¿Ya tienes cuenta? <a routerLink="/login">Inicia Sesión</a></p>
       </div>
+    
+    <div>
+      <div class="alert alert-danger" role="alert"  *ngIf="contra1!=contra2">Contraseña incorrecta  intenta de nuevo
+        {{salir()}}
+      </div>
+    </div>
+    
       </form>
     </div>
   </div>

@@ -6,6 +6,7 @@ import { ListaComponent } from './bdd/lista/lista.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrarComponent } from './login/registrar/registrar.component';
 import { MainComponent } from './main/main.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'alta', component: AltasComponent },
   { path: 'lista', component: ListaComponent },
   { path: 'editar/:id', component: EditarComponent },
+  { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: 'main', pathMatch: 'full' }
 ];
 

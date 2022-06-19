@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./registrar.component.scss']
 })
 export class RegistrarComponent implements OnInit {
-
+  contra1: string="";
+  contra2: string="";
   registrarUsuario: FormGroup;
-
   constructor(private fb: FormBuilder,
     private afAuth: AngularFireAuth,
     private router: Router) {
@@ -31,19 +31,22 @@ export class RegistrarComponent implements OnInit {
     const numero = this.registrarUsuario.value.numero;
     const contrasenia = this.registrarUsuario.value.contrasenia;
     const rContrasenia = this.registrarUsuario.value.rContrasenia;
-
+     this.contra1=this.registrarUsuario.value.contrasenia;
+    this.contra2=this.registrarUsuario.value.rContrasenia;
+    console.log(this.contra1);
     if (contrasenia == rContrasenia) {
 
       this.afAuth.createUserWithEmailAndPassword(correo, contrasenia).then((user) => {
         console.log(user);
-        alert("Usuario registrado");
-        this.router.navigate(['/login']);
+       // alert("Usuario registrado");
+       this.router.navigate(['/login']);
       }).catch((error) => {
         console.log(error);
         alert(this.firebaseError(error.code));
       })
     } else {
-      alert(this.firebaseError("no-match-password"));
+      alert(this.firebaseError("no-match-password")); 
+      
     }
 
   }
@@ -61,6 +64,13 @@ export class RegistrarComponent implements OnInit {
       default:
         return 'Error desconocido';
     }
+  }
+
+  salir(): void{
+    setTimeout(() => {
+      console.log('sleep');
+      this.router.navigate(['/home'])
+    }, 2000);
   }
 
 }
