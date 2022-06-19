@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     this.afAuth.signInWithEmailAndPassword(correo, contrasenia).then((user) => {
       console.log(user);
-      this.router.navigate(['/lista']);
+      this.router.navigate(['/home']);
     }).catch((error) => {
       console.log(error);
       Swal.fire(this.firebaseError(error.code));//// MENSAJE DE ERROR
