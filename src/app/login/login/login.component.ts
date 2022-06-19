@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/lista']);
     }).catch((error) => {
       console.log(error);
-      alert(this.firebaseError(error.code));//// MENSAJE DE ERROR
+      Swal.fire(this.firebaseError(error.code));//// MENSAJE DE ERROR
     })
   }
 
