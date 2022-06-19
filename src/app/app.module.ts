@@ -23,6 +23,7 @@ import { LectorComponent } from './lector/lector.component';
 import { GeneradorCodigosComponent } from './generador-codigos/generador-codigos.component';
 import { LoadingComponent } from './loading/loading.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { EnviosComponent } from './envios/envios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { AyudaComponent } from './ayuda/ayuda.component';
     GeneradorCodigosComponent,
     LoadingComponent,
     AyudaComponent,
+    EnviosComponent,
     
     
   ],

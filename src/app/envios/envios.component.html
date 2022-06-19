@@ -1,0 +1,29 @@
+<body>
+    <h2>{{Titulo | uppercase}}</h2>
+    <h2>{{currentdate| date:'d/M/y'}}</h2>
+    
+
+	<div id="main-container">
+
+		<table>
+			<thead>
+				<tr>
+					<th>Zona</th><th>Tiempo Estimado</th><th>Costo</th>
+				</tr>
+			</thead>
+
+			<tr>
+				<td>norte de la republica</td><td>3 dias despues de la fecha actual</td><td>{{costo1 | currency:'$'}}</td>
+			</tr>
+			<tr>
+				<td>Sur de la republica</td><td>4 dias despues de la fecha actual</td><td>{{costo2 | currency:'$'}}</td>
+			</tr>
+			<tr>
+				<td>costa oeste</td><td>4 dias despues de la fecha actual</td><td>{{costo3 | currency:'$'}}</td>
+			</tr>
+			<tr>
+				<td>Costa noroeste</td><td>2 dias despues de la fecha actual</td><td>{{costo4 | currency:'$'}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
