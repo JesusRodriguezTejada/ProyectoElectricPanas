@@ -47,6 +47,15 @@ url: "https://www.facebook.com/"
   nombre: "instagram",
   url: "https://www.instagram.com/"
 },
+{
+  nombre: "Stackblitz",
+  url: "https://stackblitz.com/"
+},
+
+{
+  nombre: "GitHub",
+  url: "https://github.com/"
+},
 ];
 
 

@@ -1,17 +1,23 @@
-/*
-	Color fondo: #632432;
-	Color header: 246355;
-	Color borde: 0F362D;
-	Color iluminado: 369681;
-*/
+
 body{
 	background-color: #f1ebec;
 	font-family: Arial;
 }
-h2{
-	align-items: center;
-    padding-left: 390px;
+
+#texto{
+	padding-top: 20px;
+font: bold 30px Tahoma;
+width: 100%;
+align-items: center;
+
+
 }
+#centro{
+
+	font: bold 30px Tahoma;
+/*	width: 100%;
+	padding-left: 1050px;*/
+	}
 
 #main-container{
 	margin: 150px auto;
@@ -19,6 +25,7 @@ h2{
 }
 
 table{
+	
 	background-color: white;
 	text-align: left;
 	border-collapse: collapse;
@@ -30,8 +37,8 @@ th, td{
 }
 
 thead{
-	background-color: #246355;
-	border-bottom: solid 5px #0F362D;
+	background-color: #7798e7;
+	border-bottom: solid 5px #7798e7;
 	color: white;
 }
 
@@ -40,6 +47,6 @@ tr:nth-child(even){
 }
 
 tr:hover td{
-	background-color: #369681;
+	background-color: #c7dbf9;
 	color: white;
 }
