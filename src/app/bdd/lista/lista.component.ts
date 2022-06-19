@@ -8,33 +8,40 @@ import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
 })
 export class ListaComponent implements OnInit {
 
-  peliculas: any[]=[];
+  productos: any[]=[];
+  condicion = "";
+  src = "../../../assets/img/productos/";
+  src2=".jpg";
 
   constructor(private bddService: BaseDeDatosService) { }
 
   ngOnInit(): void {
-    this.getPeliclulas();
+    this.getProductos();
   }
 
-  getPeliclulas() {
-    this.bddService.getPeliculas().subscribe(data => {
-      this.peliculas = [];
+  getProductos() {
+    this.bddService.getProductos().subscribe(data => {
+      this.productos = [];
       data.forEach((element:any) => {
-        this.peliculas.push({
+        this.productos.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.peliculas);
+      console.log(this.productos);
     });
   }
 
-  eliminarPelicula(id: string) {
-    this.bddService.eliminarPelicula(id).then(() => {
-      console.log("pelicula eliminada");
+  eliminarProducto(id: string) {
+    this.bddService.eliminarProducto(id).then(() => {
+      console.log("producto eliminado");
     }).catch(error => {
       console.log(error);
     })
+  }
+
+  consulta(condicion:string){
+    this.condicion = condicion;
   }
 
 }

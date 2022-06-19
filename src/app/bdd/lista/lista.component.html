@@ -1,19 +1,34 @@
 <app-navbar></app-navbar>
+<div class="center mt-4">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="consulta('')">Todo</button>
+        <button type="button" class="btn btn-secondary" (click)="consulta('cables')">Cables</button>
+        <button type="button" class="btn btn-secondary" (click)="consulta('audio')">Audio</button>
+        <button type="button" class="btn btn-secondary" (click)="consulta('seguridad')">Seguridad</button>
+    </div>
+</div>
 <div class="container mt-4">
     <table class="table tb">
         <tr class="table-info">
-            <th>Titulo</th>
-            <th>Dirección</th>
-            <th>Año</th>
             <th></th>
-            <th></th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+            <th>
+                <button type="button" class="btn btn-sm btn-info" routerLink="/alta">Agregar</button>
+            </th>
         </tr>
-        <tr *ngFor="let pelicula of peliculas">
-            <td>{{pelicula.titulo}}</td>
-            <td>{{pelicula.direccion}}</td>
-            <td>{{pelicula.anio}}</td>
-            <td><strong (click)="eliminarPelicula(pelicula.id)" role="button"> Eliminar </strong></td>
-            <td><strong role="button" [routerLink]="['/editar/', pelicula.id]"> Editar </strong></td>
-        </tr>
+        <tbody *ngFor="let producto of productos">
+            <tr *ngIf="producto.categoria == condicion || condicion == ''">
+                <td><img src={{src+producto.img+src2}} alt="" style="max-width: 150px;"></td>
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.categoria}}</td>
+                <td>${{producto.precio}}</td>
+                <td>{{producto.descripcion}}</td>
+                <td class="center"><strong role="button" [routerLink]="['/editar/', producto.id]"> Editar </strong></td>
+                <td class="center"><strong (click)="eliminarProducto(producto.id)" role="button"> Eliminar </strong></td>
+            </tr>
+        </tbody>
     </table>
 </div>

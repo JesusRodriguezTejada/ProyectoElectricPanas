@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
 
 @Component({
@@ -9,15 +10,21 @@ import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
 })
 export class AltasComponent implements OnInit {
 
-  createPelicula!: FormGroup;
+  createProducto!: FormGroup;
   submitted!: boolean;
 
-  constructor(private fb: FormBuilder, private bddService: BaseDeDatosService) {
+  constructor(
+    private fb: FormBuilder, 
+    private bddService: BaseDeDatosService,
+    private router: Router 
+    ) {
 
-    this.createPelicula = this.fb.group({
-      titulo: ['', Validators.required],
-      direccion: ['', Validators.required],
-      anio: ['', Validators.required]
+    this.createProducto = this.fb.group({
+      nombre: ['', Validators.required],
+      categoria: ['', Validators.required],
+      precio: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      img: ['undefined', Validators.required]
     })
 
     this.submitted = false;
@@ -26,28 +33,31 @@ export class AltasComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  agregarPelicula() {
+  agregarProducto() {
     this.submitted = true;
 
-    if (this.createPelicula.invalid) {
+    if (this.createProducto.invalid) {
       return;
     }
 
-    let pelicula: any = {
-      titulo: this.createPelicula.value.titulo,
-      direccion: this.createPelicula.value.direccion,
-      anio: this.createPelicula.value.anio
+    let producto: any = {
+      nombre: this.createProducto.value.nombre,
+      categoria: this.createProducto.value.categoria,
+      precio: this.createProducto.value.precio,
+      descripcion: this.createProducto.value.descripcion,
+      img: this.createProducto.value.img
     }
 
-    this.bddService.agregarPelicula(pelicula).then(() => {
-      alert("pelicula agregada exitosamente");
+    this.bddService.agregarProducto(producto).then(() => {
+      alert("producto agregado exitosamente");// mensaje de exito
+      this.router.navigate(['/lista']);
     }).catch(error => {
       console.log(error);
     })
 
-    console.log(pelicula);
+    console.log(producto);
 
-    this.createPelicula.reset
+    this.createProducto.reset
     this.submitted = false;
 
   }

@@ -9,24 +9,24 @@ export class BaseDeDatosService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  agregarPelicula(pelicula: any): Promise<any>{
-    return this.firestore.collection("peliculas").add(pelicula);
+  agregarProducto(producto: any): Promise<any>{
+    return this.firestore.collection("productos").add(producto);
   }
 
-  getPeliculas(): Observable<any> {
-    return this.firestore.collection('peliculas').snapshotChanges();
+  getProductos(): Observable<any> {
+    return this.firestore.collection('productos').snapshotChanges();
   }
 
-  getPelicula(id: string): Observable<any>{
-    return this.firestore.collection('peliculas').doc(id).snapshotChanges();
+  getProducto(id: string): Observable<any>{
+    return this.firestore.collection('productos').doc(id).snapshotChanges();
   }
 
-  eliminarPelicula(id: string): Promise<any> {
-    return this.firestore.collection("peliculas").doc(id).delete();
+  eliminarProducto(id: string): Promise<any> {
+    return this.firestore.collection("productos").doc(id).delete();
   }
 
-  actualizarPelicula(id: string, data: any): Promise<any>{
-    return this.firestore.collection("peliculas").doc(id).update(data);
+  actualizarProducto(id: string, data: any): Promise<any>{
+    return this.firestore.collection("productos").doc(id).update(data);
   }
 
 }

@@ -10,7 +10,7 @@ import { BaseDeDatosService } from 'src/app/servicios/base-de-datos.service';
 })
 export class EditarComponent implements OnInit {
 
-  editPelicula!: FormGroup;
+  editProducto!: FormGroup;
   submitted!: boolean;
   id: string | null;
 
@@ -20,10 +20,12 @@ export class EditarComponent implements OnInit {
     private aRoute: ActivatedRoute,
     private router: Router
   ) {
-    this.editPelicula = this.fb.group({
-      titulo: ['', Validators.required],
-      direccion: ['', Validators.required],
-      anio: ['', Validators.required]
+    this.editProducto = this.fb.group({
+      nombre: ['', Validators.required],
+      categoria: ['', Validators.required],
+      precio: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      img: ['', Validators.required]
     })
     this.id = this.aRoute.snapshot.paramMap.get('id');
     this.submitted = false;
@@ -36,19 +38,21 @@ export class EditarComponent implements OnInit {
   editar() {
     this.submitted = true;
 
-    if (this.editPelicula.invalid) {
+    if (this.editProducto.invalid) {
       return;
     }
 
-    const pelicula: any = {
-      titulo : this.editPelicula.value.titulo,
-      direccion : this.editPelicula.value.direccion,
-      anio : this.editPelicula.value.anio
+    const producto: any = {
+      nombre : this.editProducto.value.nombre,
+      categoria : this.editProducto.value.categoria,
+      precio : this.editProducto.value.precio,
+      descripcion : this.editProducto.value.descripcion,
+      img : this.editProducto.value.img
     }
 
     if (this.id !== null){
-      this.bddService.actualizarPelicula(this.id, pelicula).then(() => {
-        alert("pelicula editada exitosamente");
+      this.bddService.actualizarProducto(this.id, producto).then(() => {
+        alert("producto editado exitosamente");
         this.router.navigate(['/lista']);
       })
     }
@@ -56,12 +60,14 @@ export class EditarComponent implements OnInit {
 
   limpiar() {
     if (this.id !== null) {
-      this.bddService.getPelicula(this.id).subscribe(data => {
+      this.bddService.getProducto(this.id).subscribe(data => {
 
-        this.editPelicula.setValue({
-          titulo: data.payload.data()['titulo'],
-          direccion: data.payload.data()['direccion'],
-          anio: data.payload.data()['anio']
+        this.editProducto.setValue({
+          nombre: data.payload.data()['nombre'],
+          categoria: data.payload.data()['categoria'],
+          precio: data.payload.data()['precio'],
+          descripcion: data.payload.data()['descripcion'],
+          img: data.payload.data()['img']
         })
 
       })

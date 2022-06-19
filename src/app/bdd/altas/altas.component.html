@@ -1,28 +1,39 @@
+<app-navbar></app-navbar>
 <div class="container center pt-4">
     <div class="card" style="width: 60%;">
       <div class="card-body">
-        <h5 class="card-title mt-2">Agregar película</h5>
+        <h5 class="card-title mt-2">Agregar producto</h5>
         
-        <form class="mt-4" [formGroup] = "createPelicula" (ngSubmit)="agregarPelicula()">
+        <form class="mt-4" [formGroup] = "createProducto" (ngSubmit)="agregarProducto()">
           <div class="col mt-3">
-            <label>Título</label>
-            <input type="text" class="form-control" placeholder="Título" formControlName="titulo">
+            <label>Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
           </div>
           <div class="col mt-3">
-            <label>Dirección</label>
-            <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion">
+            <label>Categoría</label>
+            <input type="text" class="form-control" placeholder="Categoría" formControlName="categoria">
           </div>
           <div class="col mt-3">
-            <label>Año</label>
-            <input type="text" class="form-control" placeholder="Año" formControlName="anio">
+            <label>Precio</label>
+            <input type="text" class="form-control" placeholder="Precio" formControlName="precio">
           </div>
+          <div class="col mt-3">
+            <label>Descripción</label>
+            <textarea class="form-control" placeholder="Descripción" rows="3" formControlName="descripcion"></textarea>
+          </div>
+          <div class="col mt-3">
+            <label>Img</label>
+            <input type="text" class="form-control" placeholder="Img" formControlName="img">
+          </div>
+          
   
-          <div *ngIf="submitted && createPelicula.invalid" class="mt-4 text-center">
+          <div *ngIf="submitted && createProducto.invalid" class="mt-4 text-center">
           <span>Los campos son obligatorios</span>
           </div>
   
           <div class="col">
-              <button type="submit" class="btn btn-dark mt-4 mb-3">Agregar</button>
+              <button type="submit" class="btn btn-dark mt-4 mb-3 mr-4">Agregar</button>
+              <button type="submit" class="btn btn-secondary mt-4 mb-3" routerLink="/lista">Cancelar</button>
           </div>
   
         </form>
