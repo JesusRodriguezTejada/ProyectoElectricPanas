@@ -1,0 +1,50 @@
+body{
+    background-color: rgb(53, 52, 53);
+}
+.contenido{
+    background-color: rgb(9, 10, 100);
+    display: flex;
+    color: aliceblue;
+    margin: 60px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+
+.secciones{
+  display: flex;  
+  align-items: center;
+  padding: 40px;
+  font-weight: bold;
+}
+.menu-secundario{
+width: 20%;
+margin-top: 60px;
+font-weight: bold;
+}
+
+.menu-secundario a{
+    display: black;
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+footer{
+    width:100% ;
+    height: 200px;
+    background-color: rgb(9, 10, 100);
+    color: white;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+footer p{
+    text-align: center;
+    padding: 50px;
+    font-family:'Courier New', Courier, monospace;
+    color: rgb(247, 243, 243);
+    font-weight: bold;
+}

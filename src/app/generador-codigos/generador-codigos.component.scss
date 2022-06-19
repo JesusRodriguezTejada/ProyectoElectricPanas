@@ -1,0 +1,33 @@
+body{
+background: white;
+ }
+div{
+    align-items: center;
+     display: flex;
+     justify-content: center;
+ 
+     padding-top: 1px;
+ }
+ /*qrcode{ margin: 1px }*/
+ .btn {
+     
+ padding-left: 40px;
+ margin-top: 30px;
+ border:3px solid rgba(100, 100, 100,0.1);
+ margin-bottom: 20px;
+ padding: 20px;
+ width: 200px;
+ font-family: 'Popins', sans-serif;
+ font-size: 16px; 
+ border-radius: 8px;
+ cursor: pointer;
+ color: #fff;
+ background-size: 300%;
+ 
+ }
+ 
+ .btn{
+     background-image: linear-gradient(to left,#9a295d,#8c245b,#811246);
+ }
+ 
+ 

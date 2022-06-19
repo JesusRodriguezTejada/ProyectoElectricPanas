@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { QRCodeModule } from 'angularx-qrcode';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -19,6 +19,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HomeComponent } from './home/home.component';
+import { LectorComponent } from './lector/lector.component';
+import { GeneradorCodigosComponent } from './generador-codigos/generador-codigos.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,13 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     RegistrarComponent,
     EditarComponent,
-    HomeComponent
+    HomeComponent,
+    LectorComponent,
+    GeneradorCodigosComponent,
+    LoadingComponent,
+    
+    
+    
   ],
   imports: [
     BrowserModule,AppRoutingModule,ServiceWorkerModule.register('ngsw-worker.js', {
@@ -43,6 +52,8 @@ import { HomeComponent } from './home/home.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFirestoreModule,
+    QRCodeModule,
+  
     ReactiveFormsModule
   ],
   providers: [],

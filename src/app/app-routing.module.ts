@@ -6,7 +6,8 @@ import { ListaComponent } from './bdd/lista/lista.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegistrarComponent } from './login/registrar/registrar.component';
 import { HomeComponent } from './home/home.component';
-
+import { LectorComponent } from './lector/lector.component';
+import { GeneradorCodigosComponent } from './generador-codigos/generador-codigos.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'lista', component: ListaComponent },
   { path: 'editar/:id', component: EditarComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'lector', component: LectorComponent },
+  { path: 'generador', component: GeneradorCodigosComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
